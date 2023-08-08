@@ -1,0 +1,20 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 348485bed47c4a09aa09aa9b56fcccdd --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot inst_bram_tb_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.inst_bram_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "inst_bram_tb_time_synth.sdf", for root module "inst_bram_tb/inst_ram_module".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "inst_bram_tb_time_synth.sdf", for root module "inst_bram_tb/inst_ram_module".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.IBUF
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.OBUF
+Compiling module simprims_ver.RB36_INTERNAL_VLOG(RDADDR_COLLIS...
+Compiling module simprims_ver.RAMB36E1(RDADDR_COLLISION_HWCONF...
+Compiling module xil_defaultlib.inst_ram
+Compiling module xil_defaultlib.inst_bram_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot inst_bram_tb_time_synth

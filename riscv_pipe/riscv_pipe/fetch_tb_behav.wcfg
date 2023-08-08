@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="fetch_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="fetch_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="32119195fs"></ZoomStartTime>
+      <ZoomEndTime time="65576161fs"></ZoomEndTime>
+      <Cursor1Time time="60000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/fetch_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/m_sel" type="array">
+      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/imm" type="array">
+      <obj_property name="ElementShortName">imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/inst_mem_en" type="logic">
+      <obj_property name="ElementShortName">inst_mem_en</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/inst_mem_we" type="logic">
+      <obj_property name="ElementShortName">inst_mem_we</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/inst_mem_rst" type="logic">
+      <obj_property name="ElementShortName">inst_mem_rst</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/inst_fetch_out" type="array">
+      <obj_property name="ElementShortName">inst_fetch_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_fetch_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/DELAY" type="array">
+      <obj_property name="ElementShortName">DELAY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DELAY[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/MUX_FETCH_SEL" type="array">
+      <obj_property name="ElementShortName">MUX_FETCH_SEL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MUX_FETCH_SEL[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/IMM" type="array">
+      <obj_property name="ElementShortName">IMM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IMM[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/INST_WIDTH" type="array">
+      <obj_property name="ElementShortName">INST_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INST_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group4160" type="group">
+      <obj_property name="label">FETCH</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/m_sel" type="array">
+      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/imm" type="array">
+      <obj_property name="ElementShortName">imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_mem_en" type="logic">
+      <obj_property name="ElementShortName">inst_mem_en</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_mem_we" type="logic">
+      <obj_property name="ElementShortName">inst_mem_we</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_mem_rst" type="logic">
+      <obj_property name="ElementShortName">inst_mem_rst</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_fetch_out" type="array">
+      <obj_property name="ElementShortName">inst_fetch_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_fetch_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/N_PC" type="array">
+      <obj_property name="ElementShortName">N_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group4171" type="group">
+      <obj_property name="label">INST_MEM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/addra" type="array">
+      <obj_property name="ElementShortName">addra[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/clka" type="logic">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/dina" type="array">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/douta" type="array">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/ena" type="logic">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/wea" type="logic">
+      <obj_property name="ElementShortName">wea</obj_property>
+      <obj_property name="ObjectShortName">wea</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/rsta" type="logic">
+      <obj_property name="ElementShortName">rsta</obj_property>
+      <obj_property name="ObjectShortName">rsta</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fetch_tb/fetch_module/inst_ram_module/inst_ram" type="array">
+      <obj_property name="ElementShortName">inst_ram[0:2047][31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_ram[0:2047][31:0]</obj_property>
+   </wvobject>
+</wave_config>

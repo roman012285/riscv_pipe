@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"inst_bram_tb_time_synth.v" \
+"../../../../../riscv_pipe.srcs/sim_1/new/inst_ram_tb.v" \
+
+# Do not sort compile order
+nosort

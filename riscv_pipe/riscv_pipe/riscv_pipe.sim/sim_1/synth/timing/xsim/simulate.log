@@ -1,0 +1,110 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+writing to mem complited successfully
+start reading from memory
+-------------------------
+mem[0] = 32
+mem[1] = 0
+mem[2] = 0
+mem[3] = 0
+mem[4] = 0
+mem[5] = 0
+mem[6] = 0
+mem[7] = 0
+mem[8] = 0
+mem[9] = 0
+mem[10] = 0
+mem[11] = 11
+mem[12] = 12
+mem[13] = 13
+mem[14] = 14
+mem[15] = 15
+mem[16] = 16
+mem[17] = 17
+mem[18] = 18
+mem[19] = 19
+mem[20] = 20
+mem[21] = 21
+mem[22] = 22
+mem[23] = 23
+mem[24] = 24
+mem[25] = 25
+mem[26] = 26
+mem[27] = 27
+mem[28] = 28
+mem[29] = 29
+mem[30] = 30
+mem[31] = 31
+$finish called at time : 650 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/inst_ram_tb.v" Line 64
+writing to mem complited successfully
+start reading from memory
+-------------------------
+mem[0] = 32
+mem[1] = 0
+mem[2] = 0
+mem[3] = 0
+mem[4] = 0
+mem[5] = 0
+mem[6] = 0
+mem[7] = 0
+mem[8] = 0
+mem[9] = 0
+mem[10] = 0
+mem[11] = 11
+mem[12] = 12
+mem[13] = 13
+mem[14] = 14
+mem[15] = 15
+mem[16] = 16
+mem[17] = 17
+mem[18] = 18
+mem[19] = 19
+mem[20] = 20
+mem[21] = 21
+mem[22] = 22
+mem[23] = 23
+mem[24] = 24
+mem[25] = 25
+mem[26] = 26
+mem[27] = 27
+mem[28] = 28
+mem[29] = 29
+mem[30] = 30
+mem[31] = 31
+$finish called at time : 650 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/inst_ram_tb.v" Line 64
+writing to mem complited successfully
+start reading from memory
+-------------------------
+mem[0] = 32
+mem[1] = 0
+mem[2] = 0
+mem[3] = 0
+mem[4] = 0
+mem[5] = 0
+mem[6] = 0
+mem[7] = 0
+mem[8] = 0
+mem[9] = 0
+mem[10] = 0
+mem[11] = 11
+mem[12] = 12
+mem[13] = 13
+mem[14] = 14
+mem[15] = 15
+mem[16] = 16
+mem[17] = 17
+mem[18] = 18
+mem[19] = 19
+mem[20] = 20
+mem[21] = 21
+mem[22] = 22
+mem[23] = 23
+mem[24] = 24
+mem[25] = 25
+mem[26] = 26
+mem[27] = 27
+mem[28] = 28
+mem[29] = 29
+mem[30] = 30
+mem[31] = 31
+$finish called at time : 650 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/inst_ram_tb.v" Line 64

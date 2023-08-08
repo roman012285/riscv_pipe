@@ -1,0 +1,39 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+writing to mem complited successfully
+writing to mem complited successfully
+start reading from memory
+-------------------------
+mem[0] = 1
+mem[1] = 2
+mem[2] = 3
+mem[3] = 4
+mem[4] = 5
+mem[5] = 6
+mem[6] = 7
+mem[7] = 8
+mem[8] = 9
+mem[9] = 10
+mem[10] = 11
+mem[11] = 12
+mem[12] = 13
+mem[13] = 14
+mem[14] = 15
+mem[15] = 16
+mem[16] = 17
+mem[17] = 18
+mem[18] = 19
+mem[19] = 20
+mem[20] = 21
+mem[21] = 22
+mem[22] = 23
+mem[23] = 24
+mem[24] = 25
+mem[25] = 26
+mem[26] = 27
+mem[27] = 28
+mem[28] = 29
+mem[29] = 30
+mem[30] = 31
+mem[31] = 32
+$finish called at time : 9610 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/inst_ram_tb.v" Line 64

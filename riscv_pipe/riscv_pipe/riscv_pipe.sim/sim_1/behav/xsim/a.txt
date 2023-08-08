@@ -1,0 +1,10 @@
+$date
+   Mon Aug  7 13:10:21 2023
+$end
+$version
+  2019.1
+$end
+$timescale
+  1ps
+$end
+$enddefinitions $end
