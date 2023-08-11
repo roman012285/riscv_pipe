@@ -2,31 +2,37 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Aug  7 13:39:26 2023
-# Process ID: 13912
+# Start of session at: Fri Aug 11 12:19:23 2023
+# Process ID: 7344
 # Current directory: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1
-# Command line: vivado.exe -log fetch.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fetch.tcl
-# Log file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/fetch.vds
+# Command line: vivado.exe -log decode.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source decode.tcl
+# Log file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/decode.vds
 # Journal file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source fetch.tcl -notrace
-Command: synth_design -top fetch -part xc7a35tcpg236-1
+source decode.tcl -notrace
+Command: synth_design -top decode -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7672 
+INFO: Helper process launched with PID 9796 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 721.527 ; gain = 179.098
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 721.965 ; gain = 179.609
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'fetch' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v:10]
-INFO: [Synth 8-6157] synthesizing module 'inst_ram' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/inst_ram.v:10]
-INFO: [Synth 8-6155] done synthesizing module 'inst_ram' (1#1) [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/inst_ram.v:10]
-WARNING: [Synth 8-689] width (32) of port connection 'addra' does not match port width (11) of module 'inst_ram' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v:43]
-INFO: [Synth 8-6155] done synthesizing module 'fetch' (2#1) [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v:10]
+INFO: [Synth 8-6157] synthesizing module 'decode' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/decode.v:10]
+INFO: [Synth 8-6157] synthesizing module 'gpr' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/gpr.v:10]
+INFO: [Synth 8-3876] $readmem data file 'reg_file_init_tb.mem' is read successfully [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/gpr.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'gpr' (1#1) [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/gpr.v:10]
+INFO: [Synth 8-6157] synthesizing module 'imm_generator' [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/imm_generator.v:10]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/imm_generator.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'imm_generator' (2#1) [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/imm_generator.v:10]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/decode.v:103]
+WARNING: [Synth 8-3848] Net gpr_en_idex in module/entity decode does not have driver. [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/decode.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'decode' (3#1) [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/decode.v:10]
+WARNING: [Synth 8-3331] design decode has unconnected port gpr_en_idex
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 777.930 ; gain = 235.500
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 779.043 ; gain = 236.688
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -39,10 +45,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 783.102 ; gain = 240.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 783.324 ; gain = 240.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 783.102 ; gain = 240.672
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 783.324 ; gain = 240.969
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -50,34 +56,36 @@ Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/constrs_1/new/constraints.xdc]
 Finished Parsing XDC File [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/constrs_1/new/constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fetch_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/fetch_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/decode_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/decode_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 882.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 872.996 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 882.898 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 872.996 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 882.898 ; gain = 340.469
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 872.996 ; gain = 330.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 882.898 ; gain = 340.469
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 872.996 ; gain = 330.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 882.898 ; gain = 340.469
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 872.996 ; gain = 330.641
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v:30]
+INFO: [Synth 8-5546] ROM "data_mem_en_idex_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "data_mem_we_idex_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "gpr_en_idex_ns" is below threshold of ROM address width. It will be mapped to LUTs
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 882.898 ; gain = 340.469
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 872.996 ; gain = 330.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -89,15 +97,25 @@ Report RTL Partitions:
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---RAMs : 
-	              64K Bit         RAMs := 1     
+	             1024 Bit         RAMs := 1     
 +---Muxes : 
-	   4 Input     32 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 3     
+	   6 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	  10 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -105,21 +123,34 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module fetch 
+Module decode 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   4 Input     32 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 1     
-Module inst_ram 
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	  10 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 3     
+Module gpr 
 Detailed RTL Component Info : 
-+---Registers : 
-	               32 Bit    Registers := 1     
 +---RAMs : 
-	              64K Bit         RAMs := 1     
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module imm_generator 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -136,26 +167,28 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "data_mem_en_idex_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "data_mem_we_idex_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "gpr_en_idex_ns" is below threshold of ROM address width. It will be mapped to LUTs
+WARNING: [Synth 8-3331] design decode has unconnected port gpr_en_idex
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 882.898 ; gain = 340.469
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 872.996 ; gain = 330.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-Block RAM: Preliminary Mapping  Report (see note below)
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|inst_ram:   | inst_ram_reg | 2 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 2      | 
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+------------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives    | 
++------------+------------------------+-----------+----------------------+---------------+
+|decode      | gpr_module/gpr_mem_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+------------------------+-----------+----------------------+---------------+
 
-Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6837] The timing for the instance i_0/inst_ram_module/inst_ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance i_0/inst_ram_module/inst_ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -166,24 +199,24 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 884.602 ; gain = 342.172
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 882.793 ; gain = 340.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 894.227 ; gain = 351.797
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 907.617 ; gain = 365.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-Block RAM: Final Mapping  Report
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|inst_ram:   | inst_ram_reg | 2 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 2      | 
-+------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+Distributed RAM: Final Mapping  Report
++------------+------------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives    | 
++------------+------------------------+-----------+----------------------+---------------+
+|decode      | gpr_module/gpr_mem_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+------------------------+-----------+----------------------+---------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
@@ -197,10 +230,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6837] The timing for the instance inst_ram_module/inst_ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance inst_ram_module/inst_ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 894.730 ; gain = 352.301
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 907.617 ; gain = 365.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -224,7 +255,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -237,7 +268,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -249,25 +280,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -280,48 +311,52 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |BUFG     |     1|
-|2     |CARRY4   |     3|
-|3     |LUT2     |    12|
-|4     |LUT3     |    11|
-|5     |RAMB36E1 |     2|
-|6     |FDRE     |    11|
-|7     |IBUF     |    38|
-|8     |OBUF     |    32|
-+------+---------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |LUT2   |    23|
+|3     |LUT3   |     8|
+|4     |LUT4   |     1|
+|5     |LUT5   |    31|
+|6     |LUT6   |    53|
+|7     |RAM32M |    12|
+|8     |FDRE   |   108|
+|9     |IBUF   |   105|
+|10    |OBUF   |   108|
+|11    |OBUFT  |     1|
++------+-------+------+
 
 Report Instance Areas: 
-+------+------------------+---------+------+
-|      |Instance          |Module   |Cells |
-+------+------------------+---------+------+
-|1     |top               |         |   110|
-|2     |  inst_ram_module |inst_ram |     2|
-+------+------------------+---------+------+
++------+-------------+-------+------+
+|      |Instance     |Module |Cells |
++------+-------------+-------+------+
+|1     |top          |       |   451|
+|2     |  gpr_module |gpr    |    92|
++------+-------------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 910.551 ; gain = 268.324
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 910.551 ; gain = 368.121
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 914.984 ; gain = 282.957
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 914.984 ; gain = 372.629
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 926.617 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 931.055 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 12 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-21 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+27 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 926.617 ; gain = 627.172
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 926.617 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 931.055 ; gain = 630.867
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 931.055 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/fetch.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file fetch_utilization_synth.rpt -pb fetch_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Aug  7 13:39:54 2023...
+INFO: [Common 17-1381] The checkpoint 'D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/decode.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file decode_utilization_synth.rpt -pb decode_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Aug 11 12:19:53 2023...

@@ -5,6 +5,6 @@ May 24 2019
 D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
 D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/fetch_tb.v,1691511455,verilog,,,,fetch_tb,,,,,,,,
 D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/inst_ram_tb.v,1691491119,verilog,,,,inst_bram_tb,,,,,,,,
-D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/defines.v,1691490832,verilog,,,,,,,,,,,,
-D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v,1691498258,verilog,,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/inst_ram.v,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/defines.v,fetch,,,,,,,,
+D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/defines.v,1691649307,verilog,,,,,,,,,,,,
+D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/fetch.v,1691649608,verilog,,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/inst_ram.v,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/defines.v,fetch,,,,,,,,
 D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/inst_ram.v,1691496872,verilog,,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/fetch_tb.v,D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sources_1/new/defines.v,inst_ram,,,,,,,,

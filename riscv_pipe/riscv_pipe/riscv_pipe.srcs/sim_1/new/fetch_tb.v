@@ -13,17 +13,19 @@ module fetch_tb(
     localparam DELAY         = 5;
     
     localparam MUX_FETCH_SEL = 2;
-    localparam IMM           = 32;
+    localparam ADD2PC_WIDTH  = 32;
     localparam INST_WIDTH    = 32;
+    localparam PC_WIDTH      = 32;
     
     reg                       clk;
     reg                       rst;
     reg  [MUX_FETCH_SEL-1:0]  m_sel;
-    reg  [IMM-1:0]            imm; 
+    reg  [ADD2PC_WIDTH-1:0]   add2pc; 
     reg                       inst_mem_en;
     reg                       inst_mem_we;
     reg                       inst_mem_rst;
     wire [INST_WIDTH-1:0]     inst_fetch_out;
+    wire [PC_WIDTH-1:0]       pc2id;
     
     
     always #DELAY clk = ~clk;
@@ -32,18 +34,19 @@ module fetch_tb(
     .clk(clk),
     .rst(rst),
     .m_sel(m_sel),
-    .imm(imm), 
+    .add2pc(add2pc), 
     .inst_mem_en(inst_mem_en),
     .inst_mem_we(inst_mem_we),
     .inst_mem_rst(inst_mem_rst),
-    .inst_fetch_out(inst_fetch_out)
+    .inst_fetch_out(inst_fetch_out),
+    .pc2id(pc2id)
     );
     
     
     initial begin
        clk =          0;
        rst =          1;
-       imm =          32'h00000002;
+       add2pc =       32'h00000002;
        inst_mem_en  = 1;
        inst_mem_we  = 0;
        inst_mem_rst = 0;
@@ -87,9 +90,9 @@ module fetch_tb(
        end 
        
        if(fetch_module.PC == 32'h00000003) 
-           $display("IMM PC - PASS\n");
+           $display("ADD2PC_WIDTH PC - PASS\n");
        else begin
-           $display("IMM PC - FAIL\n");
+           $display("ADD2PC_WIDTH PC - FAIL\n");
            $stop();
        end
                

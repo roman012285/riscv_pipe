@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1691404764">
-  <File Type="PA-TCL" Name="fetch.tcl"/>
-  <File Type="REPORTS-TCL" Name="fetch_reports.tcl"/>
-  <File Type="RDS-RDS" Name="fetch.vds"/>
-  <File Type="RDS-UTIL" Name="fetch_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="fetch_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="fetch.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1691745561">
+  <File Type="PA-TCL" Name="decode.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="decode_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="decode_reports.tcl"/>
+  <File Type="RDS-RDS" Name="decode.vds"/>
+  <File Type="RDS-UTIL" Name="decode_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="decode_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="decode.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="decode_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="decode_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/defines.v">
@@ -15,7 +18,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/inst_ram.v">
+    <File Path="$PSRCDIR/sources_1/new/gpr.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/imm_generator.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/decode.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -24,14 +41,35 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/fetch.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/inst_ram.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/instruction_init_tb.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/reg_file_init_tb.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="fetch"/>
+      <Option Name="TopModule" Val="decode"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
