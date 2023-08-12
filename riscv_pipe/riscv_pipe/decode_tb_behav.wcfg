@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="decode_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="decode_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="31493118fs"></ZoomStartTime>
+      <ZoomEndTime time="65701377fs"></ZoomEndTime>
+      <Cursor1Time time="60000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <ValueColumnWidth column_width="103"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/decode_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/pc_from_id" type="array">
+      <obj_property name="ElementShortName">pc_from_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_from_id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/alu_in1" type="array">
+      <obj_property name="ElementShortName">alu_in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/alu_in2" type="array">
+      <obj_property name="ElementShortName">alu_in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/funct3_alu" type="array">
+      <obj_property name="ElementShortName">funct3_alu[3:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_alu[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/pc2ex" type="array">
+      <obj_property name="ElementShortName">pc2ex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc2ex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/data_mem_en_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/data_mem_we_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/gpr_en_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_en_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/gpr_we_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_we_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/addr_rd_idex" type="array">
+      <obj_property name="ElementShortName">addr_rd_idex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_idex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/gpr_en_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_en_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/gpr_we_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_we_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/rd_in_wb" type="array">
+      <obj_property name="ElementShortName">rd_in_wb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_in_wb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/addr_rd_wb" type="array">
+      <obj_property name="ElementShortName">addr_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/DELAY" type="array">
+      <obj_property name="ElementShortName">DELAY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DELAY[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/INST_WIDTH" type="array">
+      <obj_property name="ElementShortName">INST_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INST_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/PC_WIDTH" type="array">
+      <obj_property name="ElementShortName">PC_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/REG_WIDTH" type="array">
+      <obj_property name="ElementShortName">REG_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/FUNC_SIZE" type="array">
+      <obj_property name="ElementShortName">FUNC_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNC_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decode_tb/REG_ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">REG_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+</wave_config>

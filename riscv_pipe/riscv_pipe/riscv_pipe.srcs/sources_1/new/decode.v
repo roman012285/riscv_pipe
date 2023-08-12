@@ -10,9 +10,11 @@
 module decode(
     input                               clk,
     input                               rst,
+    
     //----- from fetch stage -----//
     input  [`INST_WIDTH-1:0]            instruction,
     input  [`PC_WIDTH-1:0]              pc_from_id,
+    
    //----- to execution stage -----//
     output reg [`REG_WIDTH-1:0]         alu_in1,    // alu1 input   
     output reg [`REG_WIDTH-1:0]         alu_in2,    // alu2 input 
@@ -24,20 +26,20 @@ module decode(
     output reg data_mem_we_idex,
     
     //----- to write back stage -----//
-    output reg                       gpr_en_idex,
+    output reg                       gpr_en_idex,    
     output reg                       gpr_we_idex,
     output reg [`REG_ADDR_WIDTH-1:0] addr_rd_idex,
     
     //----- from write back stage -----//
+    input                               gpr_en_wb,
     input                               gpr_we_wb,
     input [`REG_WIDTH-1:0]              rd_in_wb,
-    input                               gpr_en_wb,
     input [`REG_ADDR_WIDTH-1:0]         addr_rd_wb
 
     
 );
      
-    wire [`REG_WIDTH-1:0] rs1;
+    wire [`REG_WIDTH-1:0] rs1;  // data of rs1 and rs2 
     wire [`REG_WIDTH-1:0] rs2;
        
     gpr gpr_module(
@@ -62,10 +64,13 @@ module decode(
     
     // passing register info to next stage
     always@(posedge clk) begin
-        pc2ex <= pc_from_id;
+        if(rst)
+            pc2ex <= 32'h00000000;
+        else
+            pc2ex <= pc_from_id;
     end
    
-   reg [`REG_WIDTH-1:0]      funct3_alu_ns;
+   reg [`FUNC_SIZE-1:0]      funct3_alu_ns;
    reg [`REG_WIDTH-1:0]      alu_in1_ns;
    reg [`REG_WIDTH-1:0]      alu_in2_ns;
    reg                       data_mem_en_idex_ns;
@@ -81,7 +86,7 @@ module decode(
             alu_in2          <= 32'h00000000; 
             data_mem_en_idex <= 1'b0;
             data_mem_we_idex <= 1'b0;
-            gpr_we_idex      <= 1'b0; 
+            gpr_en_idex      <= 1'b0; 
             gpr_we_idex      <= 1'b0;
             addr_rd_idex     <= 5'b00000;         
         end
@@ -91,8 +96,8 @@ module decode(
             alu_in2          <= alu_in2_ns;
             data_mem_en_idex <= data_mem_en_idex_ns;
             data_mem_we_idex <= data_mem_we_idex_ns;
+            gpr_en_idex      <= gpr_en_idex_ns;
             gpr_we_idex      <= gpr_we_idex_ns; 
-            gpr_we_idex      <= gpr_en_idex_ns;
             addr_rd_idex     <= addr_rd_idex_ns;
         end
    end
@@ -177,8 +182,8 @@ module decode(
                 data_mem_en_idex_ns = 1'b0;
                 data_mem_we_idex_ns = 1'b0;
                 //to write back stage
-                gpr_en_idex_ns      = 1'b0;
-                gpr_we_idex_ns      = 1'b0;
+                gpr_en_idex_ns      = 1'b1;
+                gpr_we_idex_ns      = 1'b1;
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
@@ -190,13 +195,13 @@ module decode(
                 data_mem_en_idex_ns = 1'b0;
                 data_mem_we_idex_ns = 1'b0;
                 //to write back stage
-                gpr_en_idex_ns      = 1'b0;
-                gpr_we_idex_ns      = 1'b0;
+                gpr_en_idex_ns      = 1'b1;
+                gpr_we_idex_ns      = 1'b1;
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = rs1;
-                alu_in2_ns    = pc_from_id;         
+                alu_in1_ns    = pc_from_id;
+                alu_in2_ns    = immidiate;         
             end
             `u_type_auipc: begin
                 //to memory stage
@@ -208,8 +213,8 @@ module decode(
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = immidiate;
-                alu_in2_ns    = pc_from_id;
+                alu_in1_ns    = pc_from_id;
+                alu_in2_ns    = immidiate;
             end
             `u_type_lui: begin
                 //to memory stage
