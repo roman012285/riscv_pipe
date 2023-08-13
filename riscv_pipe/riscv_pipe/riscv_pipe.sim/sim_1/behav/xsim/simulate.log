@@ -1,0 +1,146 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+
+check reset
+funct3_alu = 0
+alu_in1 = 0
+alu_in2 = 0
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 0
+gpr_we_idex = 0
+addr_rd_idex = 0
+pc2ex = 0
+opcode = 0
+funct3 = 0, rs2_idex = 0
+
+checking add r5, r3, r2
+funct3_alu = 7
+alu_in1 = 3
+alu_in2 = 2
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = 5
+pc2ex = 12345678
+opcode = 33
+funct3 = 7
+rs2_idex = 2
+GPR[0] = 0
+GPR[1] = 2
+GPR[2] = 2
+GPR[3] = 3
+GPR[4] = 7
+GPR[5] = 2
+GPR[6] = b
+GPR[7] = c
+GPR[8] = d
+GPR[9] = e
+GPR[10] = f
+GPR[11] = xxxxxxxx
+GPR[12] = xxxxxxxx
+GPR[13] = xxxxxxxx
+GPR[14] = xxxxxxxx
+GPR[15] = xxxxxxxx
+GPR[16] = xxxxxxxx
+GPR[17] = xxxxxxxx
+GPR[18] = xxxxxxxx
+GPR[19] = xxxxxxxx
+GPR[20] = xxxxxxxx
+GPR[21] = xxxxxxxx
+GPR[22] = xxxxxxxx
+GPR[23] = xxxxxxxx
+GPR[24] = xxxxxxxx
+GPR[25] = xxxxxxxx
+GPR[26] = xxxxxxxx
+GPR[27] = xxxxxxxx
+GPR[28] = xxxxxxxx
+GPR[29] = xxxxxxxx
+GPR[30] = xxxxxxxx
+GPR[31] = xxxxxxxx
+
+checking srai r12, r3, 7
+funct3_alu = d
+alu_in1 = 3
+alu_in2 = 0
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = c
+pc2ex = 12345678
+opcode = 13
+funct3 = 5
+rs2_idex = 0
+
+checking sw r5, 3(r5)
+funct3_alu = 0
+alu_in1 = 2
+alu_in2 = 3
+data_mem_en_idex = 1
+data_mem_we_idex = 1
+gpr_en_idex = 0
+gpr_we_idex = 0
+addr_rd_idex = 3
+pc2ex = 12345678
+opcode = 23
+funct3 = 2
+rs2_idex = 2
+
+checking lb r6, 3(r10)
+funct3_alu = 0
+alu_in1 = f
+alu_in2 = 3
+data_mem_en_idex = 1
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = 6
+pc2ex = 12345678
+opcode = 3
+funct3 = 0
+rs2_idex = 3
+
+checking jalr r5, 3(r0)
+funct3_alu = 0
+alu_in1 = 0
+alu_in2 = 3
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = 5
+pc2ex = 5
+opcode = 67
+funct3 = 0
+rs2_idex = 3
+
+checking jal t11, 2
+funct3_alu = 0
+alu_in1 = 5
+alu_in2 = 2
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = b
+pc2ex = 5
+opcode = 6f
+funct3 = 0
+rs2_idex = 2
+
+checking auipc t11, 1
+funct3_alu = 0
+alu_in1 = 5
+alu_in2 = 1000
+data_mem_en_idex = 0
+data_mem_we_idex = 0
+gpr_en_idex = 1
+gpr_we_idex = 1
+addr_rd_idex = b
+pc2ex = 5
+opcode = 17
+funct3 = 1
+rs2_idex = 0
+$finish called at time : 90 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/decode_tb.v" Line 193

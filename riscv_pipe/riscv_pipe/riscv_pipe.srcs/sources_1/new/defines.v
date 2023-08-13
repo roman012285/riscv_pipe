@@ -6,6 +6,10 @@
 `define INST_DEPTH  2048
 `define INST_WIDTH  32 
 
+//----- DATA BRAM defines -----//
+`define DATA_DEPTH  2048
+`define DATA_WIDTH  32 
+
 //----- Fetch stage -----//
 `define PC_WIDTH        32 
 `define MUX_FETCH_SEL   2  
@@ -17,6 +21,8 @@
 //----- Decode stage -----//
 `define IMM_ID         32
 `define REG_ADDR_WIDTH 5
+`define OP_CODE_WIDTH  7
+`define FUNCT3_WIDTH   3
 `define addr_rs1    instruction[19:15]
 `define addr_rs2    instruction[24:20]
 `define addr_rd     instruction[11:7]

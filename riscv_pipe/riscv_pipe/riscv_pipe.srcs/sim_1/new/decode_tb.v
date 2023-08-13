@@ -14,7 +14,8 @@ module decode_tb(
     localparam REG_WIDTH      = 32;
     localparam FUNC_SIZE      = 4;
     localparam REG_ADDR_WIDTH = 5;
-    
+    localparam OP_CODE_WIDTH  = 7;
+    localparam FUNCT3_WIDTH   = 3;
     
     ///////////// registers //////////////
     reg                       clk;
@@ -22,17 +23,21 @@ module decode_tb(
     
     //----- from fetch stage -----//
     reg  [INST_WIDTH-1:0]    instruction;
-    reg  [PC_WIDTH-1:0]      pc_from_id;
+    reg  [PC_WIDTH-1:0]      pc_from_if;
     
    //----- to execution stage -----//
-    wire [REG_WIDTH-1:0]       alu_in1;    
-    wire [REG_WIDTH-1:0]       alu_in2;    
-    wire [FUNC_SIZE-1:0]       funct3_alu; 
-    wire [PC_WIDTH-1:0]        pc2ex;      
+    wire [REG_WIDTH-1:0]         alu_in1;    
+    wire [REG_WIDTH-1:0]         alu_in2;    
+    wire [FUNC_SIZE-1:0]         funct3_alu; 
+    wire [PC_WIDTH-1:0]          pc2ex; 
+    wire [OP_CODE_WIDTH-1:0]     op_code2ex;
+    wire [FUNCT3_WIDTH-1:0]      funct3;
+      
        
     //----- to data memory stage -----//
-    wire data_mem_en_idex;
-    wire data_mem_we_idex;
+    wire                 data_mem_en_idex;
+    wire                 data_mem_we_idex;
+    wire [REG_WIDTH-1:0] rs2_idex;
     
     //----- to write back stage -----//
     wire                       gpr_en_idex;    
@@ -52,17 +57,20 @@ module decode_tb(
     .rst(rst),
     //----- from fetch stage -----//
     .instruction(instruction),
-    .pc_from_id(pc_from_id),
+    .pc_from_if(pc_from_if),
     
    //----- to execution stage -----//
     .alu_in1(alu_in1),        
     .alu_in2(alu_in2),        
     .funct3_alu(funct3_alu), 
-    .pc2ex(pc2ex),           
+    .pc2ex(pc2ex),
+    .op_code2ex(op_code2ex),
+    .funct3(funct3),           
        
     //----- to data memory stage -----//
     .data_mem_en_idex(data_mem_en_idex),
     .data_mem_we_idex(data_mem_we_idex),
+    .rs2_idex(rs2_idex),
     
     //----- to write back stage -----//
     .gpr_en_idex(gpr_en_idex),    
@@ -87,11 +95,12 @@ module decode_tb(
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
         $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);  
+        $display("opcode = %1h\nfunct3 = %1h, rs2_idex = %1h", op_code2ex, funct3, rs2_idex);
         
         rst         = 0;
         $display("\nchecking add r5, r3, r2");
         instruction = 32'h0021f2b3;
-        pc_from_id  = 32'h12345678;  // that value doesnt really matter at ID stage TB
+        pc_from_if  = 32'h12345678;  // that value doesnt really matter at ID stage TB
         gpr_en_wb   = 1'b1;
         gpr_we_wb   = 1'b1;
         rd_in_wb    = 32'h00000002; // that value doesnt important at ID stage TB 
@@ -101,7 +110,8 @@ module decode_tb(
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
         $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
-        
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex); 
+
         #(2*DELAY);
         
         show_gpr();
@@ -115,7 +125,8 @@ module decode_tb(
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex);  
         ///////////////////////////////////////////////////////////////////////////////////
         
              
@@ -125,7 +136,8 @@ module decode_tb(
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex);  
         ///////////////////////////////////////////////////////////////////////////////////
         
         
@@ -135,7 +147,8 @@ module decode_tb(
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex); 
         ///////////////////////////////////////////////////////////////////////////////////
         
         //branch instruction skipped from testing. There is nothing special about them at decode stage        
@@ -144,12 +157,13 @@ module decode_tb(
         
         $display("\nchecking jalr r5, 3(r0)");
         instruction = 32'h003002e7;
-        pc_from_id  = 32'h00000005;
+        pc_from_if  = 32'h00000005;
         #(2*DELAY);
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex); 
         ///////////////////////////////////////////////////////////////////////////////////
         
                 
@@ -159,7 +173,8 @@ module decode_tb(
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex);  
         ///////////////////////////////////////////////////////////////////////////////////
         
         $display("\nchecking auipc t11, 1");
@@ -168,7 +183,8 @@ module decode_tb(
         
         $display("funct3_alu = %1h\nalu_in1 = %1h\nalu_in2 = %1h",funct3_alu, alu_in1, alu_in2);
         $display("data_mem_en_idex = %1h\ndata_mem_we_idex = %1h\ngpr_en_idex = %1h", data_mem_en_idex, data_mem_we_idex, gpr_en_idex); 
-        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex); 
+        $display("gpr_we_idex = %1h\naddr_rd_idex = %1h\npc2ex = %1h", gpr_we_idex, addr_rd_idex, pc2ex);
+        $display("opcode = %1h\nfunct3 = %1h\nrs2_idex = %1h", op_code2ex, funct3, rs2_idex); 
         ///////////////////////////////////////////////////////////////////////////////////
         
         //branch instruction skipped from testing. There is nothing special about them at decode stage

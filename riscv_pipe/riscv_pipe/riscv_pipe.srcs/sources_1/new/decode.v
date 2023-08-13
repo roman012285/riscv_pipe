@@ -13,28 +13,31 @@ module decode(
     
     //----- from fetch stage -----//
     input  [`INST_WIDTH-1:0]            instruction,
-    input  [`PC_WIDTH-1:0]              pc_from_id,
+    input  [`PC_WIDTH-1:0]              pc_from_if,
     
    //----- to execution stage -----//
-    output reg [`REG_WIDTH-1:0]         alu_in1,    // alu1 input   
+    output reg [`REG_WIDTH-1:0]         alu_in1,    // alu1 input  
     output reg [`REG_WIDTH-1:0]         alu_in2,    // alu2 input 
-    output reg [`FUNC_SIZE-1:0]         funct3_alu, // function passed to alu
-    output reg [`PC_WIDTH-1:0]          pc2ex,      // pass pc to next stage
+    output reg [`FUNC_SIZE-1:0]         funct3_alu, // op code passed to alu
+    output reg [`PC_WIDTH-1:0]          pc2ex,      // pass pc to execution stage
+    output reg [`OP_CODE_WIDTH-1:0]     op_code2ex, // instruction[6:0]
+    output reg [`FUNCT3_WIDTH-1:0]      funct3,     // instruction[14:12]
        
     //----- to data memory stage -----//
-    output reg data_mem_en_idex,
-    output reg data_mem_we_idex,
+    output reg                  data_mem_en_idex,   // enables memory read in load-store instructions
+    output reg                  data_mem_we_idex,   // write enable in store instructions
+    output reg [`REG_WIDTH-1:0] rs2_idex,           // used in store instructions in mem stage
     
     //----- to write back stage -----//
-    output reg                       gpr_en_idex,    
-    output reg                       gpr_we_idex,
-    output reg [`REG_ADDR_WIDTH-1:0] addr_rd_idex,
+    output reg                         gpr_en_idex,    
+    output reg                         gpr_we_idex,     // write enable when write to gpr
+    output reg [`REG_ADDR_WIDTH-1:0]   addr_rd_idex,    // rd address to write back into
     
     //----- from write back stage -----//
-    input                               gpr_en_wb,
+    input                               gpr_en_wb,     
     input                               gpr_we_wb,
-    input [`REG_WIDTH-1:0]              rd_in_wb,
-    input [`REG_ADDR_WIDTH-1:0]         addr_rd_wb
+    input [`REG_WIDTH-1:0]              rd_in_wb,       // value of rd from rightback. calculated at execution stage or load instruction in mem stage
+    input [`REG_ADDR_WIDTH-1:0]         addr_rd_wb      // rd address to write back into
 
     
 );
@@ -67,7 +70,7 @@ module decode(
         if(rst)
             pc2ex <= 32'h00000000;
         else
-            pc2ex <= pc_from_id;
+            pc2ex <= pc_from_if;
     end
    
    reg [`FUNC_SIZE-1:0]      funct3_alu_ns;
@@ -88,7 +91,10 @@ module decode(
             data_mem_we_idex <= 1'b0;
             gpr_en_idex      <= 1'b0; 
             gpr_we_idex      <= 1'b0;
-            addr_rd_idex     <= 5'b00000;         
+            addr_rd_idex     <= 5'b00000;
+            op_code2ex       <= 7'b0000000;
+            funct3           <= 3'b000;
+            rs2_idex         <= 32'h00000000;         
         end
         else begin
             funct3_alu       <= funct3_alu_ns;
@@ -99,6 +105,9 @@ module decode(
             gpr_en_idex      <= gpr_en_idex_ns;
             gpr_we_idex      <= gpr_we_idex_ns; 
             addr_rd_idex     <= addr_rd_idex_ns;
+            op_code2ex       <= instruction[6:0];
+            funct3           <= instruction[14:12];
+            rs2_idex         <= rs2;
         end
    end
       
@@ -174,8 +183,8 @@ module decode(
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = rs1;
-                alu_in2_ns    = rs2; 
+                alu_in1_ns    = pc_from_if;
+                alu_in2_ns    = immidiate; 
            end
            `i_type_jalr: begin
                 //to memory stage
@@ -200,7 +209,7 @@ module decode(
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = pc_from_id;
+                alu_in1_ns    = pc_from_if;
                 alu_in2_ns    = immidiate;         
             end
             `u_type_auipc: begin
@@ -213,7 +222,7 @@ module decode(
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = pc_from_id;
+                alu_in1_ns    = pc_from_if;
                 alu_in2_ns    = immidiate;
             end
             `u_type_lui: begin

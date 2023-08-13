@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Aug 11 12:19:23 2023
-# Process ID: 7344
+# Start of session at: Sun Aug 13 10:53:49 2023
+# Process ID: 8152
 # Current directory: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1
-# Command line: vivado.exe -log decode.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source decode.tcl
-# Log file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/decode.vds
+# Command line: vivado.exe -log execution.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source execution.tcl
+# Log file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1/execution.vds
 # Journal file: D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source decode.tcl -notrace
+source execution.tcl -notrace
