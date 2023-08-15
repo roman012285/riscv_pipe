@@ -16,12 +16,13 @@ module decode(
     input  [`PC_WIDTH-1:0]              pc_from_if,
     
    //----- to execution stage -----//
-    output reg [`REG_WIDTH-1:0]         alu_in1,    // alu1 input  
-    output reg [`REG_WIDTH-1:0]         alu_in2,    // alu2 input 
-    output reg [`FUNC_SIZE-1:0]         funct3_alu, // op code passed to alu
-    output reg [`PC_WIDTH-1:0]          pc2ex,      // pass pc to execution stage
-    output reg [`OP_CODE_WIDTH-1:0]     op_code2ex, // instruction[6:0]
-    output reg [`FUNCT3_WIDTH-1:0]      funct3,     // instruction[14:12]
+    output reg [`REG_WIDTH-1:0]         alu_in1,       // alu1 input  
+    output reg [`REG_WIDTH-1:0]         alu_in2,       // alu2 input 
+    output reg [`FUNC_SIZE-1:0]         funct3_alu,    // op code passed to alu
+    output reg [`PC_WIDTH-1:0]          pc2ex,         // pass pc to execution stage
+    output reg [`OP_CODE_WIDTH-1:0]     op_code2ex,    // instruction[6:0]
+    output reg [`FUNCT3_WIDTH-1:0]      funct3,        // instruction[14:12]
+    output reg [`IMM_ID-1:0]            immidiate_ex,  // used for adding value to pc
        
     //----- to data memory stage -----//
     output reg                  data_mem_en_idex,   // enables memory read in load-store instructions
@@ -94,7 +95,8 @@ module decode(
             addr_rd_idex     <= 5'b00000;
             op_code2ex       <= 7'b0000000;
             funct3           <= 3'b000;
-            rs2_idex         <= 32'h00000000;         
+            rs2_idex         <= 32'h00000000;
+            immidiate_ex     <= 32'h00000000;         
         end
         else begin
             funct3_alu       <= funct3_alu_ns;
@@ -108,6 +110,7 @@ module decode(
             op_code2ex       <= instruction[6:0];
             funct3           <= instruction[14:12];
             rs2_idex         <= rs2;
+            immidiate_ex     <= immidiate; 
         end
    end
       
@@ -183,8 +186,8 @@ module decode(
                 addr_rd_idex_ns     = `addr_rd;
                 //to execution stage
                 funct3_alu_ns = `add;
-                alu_in1_ns    = pc_from_if;
-                alu_in2_ns    = immidiate; 
+                alu_in1_ns    = rs1;
+                alu_in2_ns    = rs2; 
            end
            `i_type_jalr: begin
                 //to memory stage

@@ -17,19 +17,17 @@ module execution(
     input [`FUNC_SIZE-1:0]         funct3_alu, // op code passed to alu
     input [`PC_WIDTH-1:0]          pc   ,      // pass from decode stage
     input [`OP_CODE_WIDTH-1:0]     op_code,    // instruction[6:0]
-    input [`FUNCT3_WIDTH-1:0]      funct3,     // instruction[14:12] 
-    input [`REG_WIDTH-1:0]         rs2,        // used in store instructions in mem stage
- 
-  
+    input [`FUNCT3_WIDTH-1:0]      funct3,     // instruction[14:12]
+   
     //----- to data memory stage -----//
     input                                data_mem_en_idex,   // enables memory read in load-store instructions. pass as is to next stage
     input                                data_mem_we_idex,   // write enable in store instructions. pass as is to next stage
     input [`REG_WIDTH-1:0]               rs2_idex,           // used in store instructions in mem stage. pass as is to next stage
+    input [`IMM_ID-1:0]                  immidiate,          // used in branch instructions to be added to pc 
     output reg                           data_mem_en_mem,    // enables memory in load-store instructions. passed as is to next stage
     output reg                           data_mem_we_mem,    // write enable in store instructions. passed as is to next stage
     output reg [`REG_WIDTH-1:0]          rs2_mem,            // used in store instructions. passed as is to next stage
     output reg [$clog2(`DATA_DEPTH)-1:0] addr_mem,           // adder to store rs2 or load to rd
-    output reg [`PC_WIDTH-1:0]           pc_mem,
     
     //----- to write back stage -----//
     input                              gpr_en_idex,       
@@ -38,7 +36,11 @@ module execution(
     output reg                         gpr_en_wb,    
     output reg                         gpr_we_wb,       // write enable to gpr. pass as is to next stage
     output reg [`REG_ADDR_WIDTH-1:0]   addr_rd_wb,      // rd address to write back into. pass as is to next stage
-    output reg [`REG_ADDR_WIDTH-1:0]   data_rd_wb       // rd data to write back into. 
+    output reg [`REG_WIDTH-1:0]        data_rd_wb,       // rd data to write back into. 
+    
+    //----- to fetch stage -----//
+    output reg [`PC_WIDTH-1:0]         pc_fetch
+
 
 );
 
@@ -53,15 +55,16 @@ module execution(
         .flag(flag)      
     );
     
-    reg [`REG_ADDR_WIDTH-1:0]     data_rd_wb_ns;
-    reg [`PC_WIDTH-1:0]           pc_mem_ns;
+    reg [`REG_WIDTH-1:0]          data_rd_wb_ns;
+    reg [`PC_WIDTH-1:0]           pc_fetch_ns;
     reg [$clog2(`DATA_DEPTH)-1:0] addr_mem_ns;
+    reg [`REG_WIDTH-1:0]          rs2_mem_ns;    // used in store instructions in mem stage. pass as is to next stage
     
     always@(posedge clk) begin
         if(rst) 
-            pc_mem <= 32'h00000000;
+            pc_fetch <= 32'h00000000;
         else
-            pc_mem <= pc_mem_ns;
+            pc_fetch <= pc_fetch_ns;
     
     end
     
@@ -79,7 +82,7 @@ module execution(
         else begin
            data_mem_en_mem <= data_mem_en_idex;
            data_mem_we_mem <= data_mem_we_idex;
-           rs2_mem         <= rs2_idex;
+           rs2_mem         <= rs2_mem_ns;
            gpr_en_wb       <= gpr_en_idex;
            gpr_we_wb       <= gpr_we_idex;        
            addr_rd_wb      <= addr_rd_idex;
@@ -90,48 +93,55 @@ module execution(
 
     always@(*) begin
         set_default();
-        pc_mem_ns = pc + 1;
+        pc_fetch_ns = pc + 1;
         case(op_code)
             `r_type: 
                 data_rd_wb_ns = result;           
             `i_type_arithm:
                 data_rd_wb_ns = result;  
-            `s_type:
-                addr_mem_ns   = result;                     
-            `i_type_dmem: 
+            `s_type: begin
+                addr_mem_ns   = result;
+                if(funct3 == 3'b000)
+                    rs2_mem_ns = rs2_idex[7:0];
+                else if(funct3 == 3'b001)
+                    rs2_mem_ns = rs2_idex[15:0];
+                else
+                    rs2_mem_ns = rs2_idex; 
+            end                     
+           `i_type_dmem: 
                 addr_mem_ns   = result;
            `b_type: begin
                 if(funct3 == 3'b000)
                     if(flag[2])
-                        pc_mem_ns = result;
+                        pc_fetch_ns = pc + immidiate;
                 else if(funct3 == 3'b001)
                     if(!flag[2])
-                        pc_mem_ns = result;
+                        pc_fetch_ns = pc + immidiate;
                 else if(funct3 == 3'b100)
                     if(flag[0])
-                        pc_mem_ns = result;
+                        pc_fetch_ns = pc + immidiate;
                 else if(funct3 == 3'b101)
                     if(!flag[0])
-                        pc_mem_ns = result;
+                        pc_fetch_ns = pc + immidiate;
                else if(funct3 == 3'b110)
                     if(flag[2])
-                        pc_mem_ns = result;
+                        pc_fetch_ns = pc + immidiate;
                else if(funct3 == 3'b110)
                     if(!flag[2])
-                        pc_mem_ns = result;       
+                        pc_fetch_ns = pc + immidiate;       
            end
            `i_type_jalr: begin
                 data_rd_wb_ns = pc + 1; 
-                pc_mem_ns     = result;
+                pc_fetch_ns     = result;
            end
            `j_type: begin
                 data_rd_wb_ns = pc + 1;
-                pc_mem_ns     = result;  
+                pc_fetch_ns     = result;  
             end
             `u_type_auipc: 
-               data_rd_wb_ns = pc + 1;  
+               data_rd_wb_ns = pc + immidiate;  
             `u_type_lui: begin
-               data_rd_wb_ns = result;
+               data_rd_wb_ns = immidiate;
             end
             
         endcase  
@@ -140,6 +150,7 @@ module execution(
     task set_default(); begin
         data_rd_wb_ns = 0;
         addr_mem_ns   = 0;
+        rs2_mem_ns    = 0; 
     end
     endtask
     

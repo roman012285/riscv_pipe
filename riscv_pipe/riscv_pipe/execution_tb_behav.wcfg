@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="execution_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="execution_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="999994116fs"></ZoomStartTime>
+      <ZoomEndTime time="1000001177fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <ValueColumnWidth column_width="123"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="33" />
+   <wvobject fp_name="/execution_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/alu_in1" type="array">
+      <obj_property name="ElementShortName">alu_in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/alu_in2" type="array">
+      <obj_property name="ElementShortName">alu_in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/funct3_alu" type="array">
+      <obj_property name="ElementShortName">funct3_alu[3:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_alu[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/op_code" type="array">
+      <obj_property name="ElementShortName">op_code[6:0]</obj_property>
+      <obj_property name="ObjectShortName">op_code[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/funct3" type="array">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/data_mem_en_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/data_mem_we_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/rs2_idex" type="array">
+      <obj_property name="ElementShortName">rs2_idex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_idex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/immidiate" type="array">
+      <obj_property name="ElementShortName">immidiate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immidiate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/data_mem_en_mem" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_mem</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/data_mem_we_mem" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_mem</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/rs2_mem" type="array">
+      <obj_property name="ElementShortName">rs2_mem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_mem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/addr_mem" type="array">
+      <obj_property name="ElementShortName">addr_mem[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_mem[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/gpr_en_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_en_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/gpr_we_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_we_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/addr_rd_idex" type="array">
+      <obj_property name="ElementShortName">addr_rd_idex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_idex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/gpr_en_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_en_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/gpr_we_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_we_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/addr_rd_wb" type="array">
+      <obj_property name="ElementShortName">addr_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/data_rd_wb" type="array">
+      <obj_property name="ElementShortName">data_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/pc_fetch" type="array">
+      <obj_property name="ElementShortName">pc_fetch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_fetch[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/DELAY" type="array">
+      <obj_property name="ElementShortName">DELAY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DELAY[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/REG_WIDTH" type="array">
+      <obj_property name="ElementShortName">REG_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/FUNC_SIZE" type="array">
+      <obj_property name="ElementShortName">FUNC_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNC_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/PC_WIDTH" type="array">
+      <obj_property name="ElementShortName">PC_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/OP_CODE_WIDTH" type="array">
+      <obj_property name="ElementShortName">OP_CODE_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OP_CODE_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/FUNCT3_WIDTH" type="array">
+      <obj_property name="ElementShortName">FUNCT3_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/DATA_DEPTH" type="array">
+      <obj_property name="ElementShortName">DATA_DEPTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_DEPTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/REG_ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">REG_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/execution_tb/IMM_ID" type="array">
+      <obj_property name="ElementShortName">IMM_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IMM_ID[31:0]</obj_property>
+   </wvobject>
+</wave_config>
