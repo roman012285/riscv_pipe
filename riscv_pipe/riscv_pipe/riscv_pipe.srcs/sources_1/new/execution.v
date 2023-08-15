@@ -31,11 +31,11 @@ module execution(
     
     //----- to write back stage -----//
     input                              gpr_en_idex,       
-    input                              gpr_we_idex,     // write enable to gpr. pass as is to next stage
-    input [`REG_ADDR_WIDTH-1:0]        addr_rd_idex,    // rd address to write back into. pass as is to next stage
+    input                              gpr_we_idex,      // write enable to gpr. pass as is to next stage
+    input [`REG_ADDR_WIDTH-1:0]        addr_rd_idex,     // rd address to write back into. pass as is to next stage
     output reg                         gpr_en_wb,    
-    output reg                         gpr_we_wb,       // write enable to gpr. pass as is to next stage
-    output reg [`REG_ADDR_WIDTH-1:0]   addr_rd_wb,      // rd address to write back into. pass as is to next stage
+    output reg                         gpr_we_wb,        // write enable to gpr. pass as is to next stage
+    output reg [`REG_ADDR_WIDTH-1:0]   addr_rd_wb,       // rd address to write back into. pass as is to next stage
     output reg [`REG_WIDTH-1:0]        data_rd_wb,       // rd data to write back into. 
     
     //----- to fetch stage -----//

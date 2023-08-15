@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1692083796">
-  <File Type="PA-TCL" Name="execution.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="execution_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="execution_reports.tcl"/>
-  <File Type="RDS-RDS" Name="execution.vds"/>
-  <File Type="RDS-UTIL" Name="execution_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="execution_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="execution.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="execution_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="execution_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1692099186">
+  <File Type="PA-TCL" Name="mem_stage.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="mem_stage_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="mem_stage_reports.tcl"/>
+  <File Type="RDS-RDS" Name="mem_stage.vds"/>
+  <File Type="RDS-UTIL" Name="mem_stage_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="mem_stage_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="mem_stage.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="mem_stage_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="mem_stage_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/defines.v">
@@ -18,8 +18,31 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/data_ram.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mem_stage.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/write_back.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/alu.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -27,6 +50,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/execution.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -84,9 +108,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/data_init_tb.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="execution"/>
+      <Option Name="TopModule" Val="mem_stage"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
