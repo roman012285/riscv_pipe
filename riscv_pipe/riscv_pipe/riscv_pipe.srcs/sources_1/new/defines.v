@@ -12,11 +12,6 @@
 
 //----- Fetch stage -----//
 `define PC_WIDTH        32 
-`define MUX_FETCH_SEL   2  
-`define ADD2PC_WIDTH    32
-`define INC_PC          2'b00
-`define BRANCH_PC       2'b01
-`define FREEZE_PC       2'b10
 
 //----- Decode stage -----//
 `define IMM_ID         32

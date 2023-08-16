@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log mem_stage.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mem_stage.tcl
+EAStep vivado -log fetch.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fetch.tcl

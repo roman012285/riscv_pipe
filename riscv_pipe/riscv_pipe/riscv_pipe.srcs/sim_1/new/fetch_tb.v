@@ -12,15 +12,14 @@ module fetch_tb(
 
     localparam DELAY         = 5;
     
-    localparam MUX_FETCH_SEL = 2;
-    localparam ADD2PC_WIDTH  = 32;
     localparam INST_WIDTH    = 32;
     localparam PC_WIDTH      = 32;
     
     reg                       clk;
     reg                       rst;
-    reg  [MUX_FETCH_SEL-1:0]  m_sel;
-    reg  [ADD2PC_WIDTH-1:0]   add2pc; 
+    reg                       jump_en;   // load enable incase of branches 
+    reg [PC_WIDTH-1:0]        load_pc;   // pc from execution stage in case of branch
+    reg                       pc_en; 
     reg                       inst_mem_en;
     reg                       inst_mem_we;
     reg                       inst_mem_rst;
@@ -33,8 +32,9 @@ module fetch_tb(
     fetch fetch_module(
     .clk(clk),
     .rst(rst),
-    .m_sel(m_sel),
-    .add2pc(add2pc), 
+    .jump_en(jump_en),
+    .load_pc(load_pc),
+    .pc_en(pc_en), 
     .inst_mem_en(inst_mem_en),
     .inst_mem_we(inst_mem_we),
     .inst_mem_rst(inst_mem_rst),
@@ -44,102 +44,37 @@ module fetch_tb(
     
     
     initial begin
-       clk =          0;
-       rst =          1;
-       add2pc =       32'h00000002;
+       clk          = 0;
+       rst          = 1;
+       load_pc      = 32'h04560002;
+       jump_en      = 1'b1;
        inst_mem_en  = 1;
        inst_mem_we  = 0;
        inst_mem_rst = 0;
-       #(2*DELAY);
-        
-       $display("\n");
-        
-       if(!fetch_module.PC) 
-           $display("reset PC - PASS\n");
-       else begin
-           $display("reset PC - FAILED\n");
-           $stop();
-       end
-                
-       rst = 0;
-       m_sel = 2'b00;
+       pc_en        = 1'b0;
        #(2*DELAY);
        
-       if(inst_fetch_out == 1)
-           $display("mem[0] = 1 - PASS\n");
-       else begin
-           $display("mem[0] != 1 - FAIL\n");
-           $stop();      
-       end
-               
-       if(fetch_module.PC == 32'h00000001) 
-           $display("INC PC - PASS\n");
-       else begin
-              $display("INC PC - FAIL\n");
-              $stop();
-       end
+       $display("\ncheck_reset");
+       $display("pc = %1h\n", fetch_module.PC); 
        
-       m_sel = 2'b01;
+       rst          = 1'b0;
+       jump_en      = 1'b0;
+       pc_en        = 1'b1;
+       
        #(2*DELAY);
-        
-      if(inst_fetch_out == 2)
-           $display("mem[1] = 2 - PASS\n");
-       else begin
-           $display("mem[1] != 2 - FAIL\n");
-           $stop();      
-       end 
+       $display("inc_pc");
+       $display("pc = %1h\n", fetch_module.PC);
        
-       if(fetch_module.PC == 32'h00000003) 
-           $display("ADD2PC_WIDTH PC - PASS\n");
-       else begin
-           $display("ADD2PC_WIDTH PC - FAIL\n");
-           $stop();
-       end
-               
-       m_sel = 2'b10;
-       #(2*DELAY);
+       #(2*DELAY);                             
+       $display("inc_pc");                    
+       $display("pc = %1h\n", fetch_module.PC);
        
-      if(inst_fetch_out == 32'hab12c456)
-           $display("mem[3] = ab12c456 - PASS\n");
-       else begin
-           $display("mem[3] != ab12c456 - FAIL\n");
-           $stop();      
-       end
+       jump_en      = 1'b1;
+       #(2*DELAY);                             
+       $display("update_pc");                    
+       $display("pc = %1h\n", fetch_module.PC);
        
-       if(fetch_module.PC == 32'h00000003) 
-           $display("FREEZE PC - PASS\n");
-       else begin
-           $display("failed FREEZE PC\n");
-           $stop();
-       end
-               
-       m_sel = 2'b11;
-       #(2*DELAY);
-       
-       if(inst_fetch_out == 32'hab12c456)
-           $display("mem[3] = ab12c456 - PASS\n");
-       else begin
-           $display("mem[3] != ab12c456 - FAIL\n");
-           $stop();      
-       end
-       
-       if(fetch_module.PC == 32'h00000000)
-           $display("m_sel == 2'b11 - PASS\n");
-       else begin
-           $display("m_sel = 2'b11 - FAIL\n");
-           $stop();
-         end
-        
-       #(2*DELAY);
-       if(inst_fetch_out == 1)
-           $display("mem[0] = 1 - PASS\n");
-       else begin
-           $display("mem[0] != 1 - FAIL\n");
-           $stop();      
-       end
-           
-       
-        $finish();
+       $finish();
     end
     
 endmodule

@@ -1,0 +1,16 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+
+check_reset
+pc = 0
+
+inc_pc
+pc = 1
+
+inc_pc
+pc = 2
+
+update_pc
+pc = 4560002
+
+$finish called at time : 40 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/fetch_tb.v" Line 77

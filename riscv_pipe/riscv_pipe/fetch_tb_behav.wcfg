@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="33456706fs"></ZoomEndTime>
-      <Cursor1Time time="60000000fs"></Cursor1Time>
+      <ZoomStartTime time="11885775fs"></ZoomStartTime>
+      <ZoomEndTime time="45622845fs"></ZoomEndTime>
+      <Cursor1Time time="40000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="202"></NameColumnWidth>
-      <ValueColumnWidth column_width="111"></ValueColumnWidth>
+      <ValueColumnWidth column_width="107"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/fetch_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,10 +27,6 @@
    <wvobject fp_name="/fetch_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/fetch_tb/m_sel" type="array">
-      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
-      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/fetch_tb/inst_mem_en" type="logic">
       <obj_property name="ElementShortName">inst_mem_en</obj_property>
@@ -52,10 +48,6 @@
       <obj_property name="ElementShortName">DELAY[31:0]</obj_property>
       <obj_property name="ObjectShortName">DELAY[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/fetch_tb/MUX_FETCH_SEL" type="array">
-      <obj_property name="ElementShortName">MUX_FETCH_SEL[31:0]</obj_property>
-      <obj_property name="ObjectShortName">MUX_FETCH_SEL[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/fetch_tb/INST_WIDTH" type="array">
       <obj_property name="ElementShortName">INST_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">INST_WIDTH[31:0]</obj_property>
@@ -71,10 +63,6 @@
    <wvobject fp_name="/fetch_tb/fetch_module/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/fetch_tb/fetch_module/m_sel" type="array">
-      <obj_property name="ElementShortName">m_sel[1:0]</obj_property>
-      <obj_property name="ObjectShortName">m_sel[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/fetch_tb/fetch_module/inst_mem_en" type="logic">
       <obj_property name="ElementShortName">inst_mem_en</obj_property>

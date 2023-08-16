@@ -10,8 +10,9 @@
 module fetch(
     input                       clk,
     input                       rst,
-    input  [`MUX_FETCH_SEL-1:0] m_sel,
-    input  [`ADD2PC_WIDTH-1:0]  add2pc, 
+    input                       jump_en,   // load enable incase of branches 
+    input  [`PC_WIDTH-1:0]      load_pc,   // pc from execution stage in case of branch
+    input                       pc_en, 
     input                       inst_mem_en,
     input                       inst_mem_we,
     input                       inst_mem_rst,  //IF = 0
@@ -32,19 +33,18 @@ module fetch(
         pc2id <= PC;
     end
     
+    
     always@(*) begin
-        case(m_sel)
-            `INC_PC:
+        if(pc_en) begin
+           if(jump_en)
+                N_PC = load_pc;
+           else
                 N_PC = PC + 1;
-            `BRANCH_PC:
-                N_PC = PC + add2pc;
-            `FREEZE_PC: 
-                N_PC = PC;
-             default:
-                N_PC = 32'h00000000;
-        endcase   
+        end
+        else
+            N_PC = PC;     
     end
-        
+      
     inst_ram inst_ram_module(
      .addra(PC), 
      .clka(clk),
