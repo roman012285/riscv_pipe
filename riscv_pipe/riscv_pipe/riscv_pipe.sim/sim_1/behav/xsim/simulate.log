@@ -1,16 +1,172 @@
 Vivado Simulator 2019.1
 Time resolution is 1 ps
 
-check_reset
-pc = 0
+RESET CHECK, ALL REGS MUST BE ZERO!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 0
+data_mem_we_mem = 0
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = 0
 
-inc_pc
-pc = 1
+write back stage registers:
+-----------------------------
+gpr_en_wb = 0
+gpr_we_wb = 0
+addr_rd_wb = 0
+data_rd_wb = 0
+jump_en = 0
 
-inc_pc
-pc = 2
+CHECKING R and I TYPE  INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = 12345679
 
-update_pc
-pc = 4560002
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = fffffffe
+jump_en = 0
 
-$finish called at time : 40 ns : File "D:/BarIlan/DDP/exercises/RiscV_pipe/riscv_pipe/riscv_pipe/riscv_pipe.srcs/sim_1/new/fetch_tb.v" Line 77
+CHECKING S TYPE (sb) INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 78
+addr_mem = 67d
+pc_fetch = 12345679
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 0
+jump_en = 0
+
+CHECKING S TYPE (sh) INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 5678
+addr_mem = 67d
+pc_fetch = 12345679
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 0
+jump_en = 0
+
+CHECKING I TYPE MEM INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 78
+pc_fetch = 12345679
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 0
+jump_en = 0
+
+CHECKING B TYPE (beq) INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = 1234567b
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 0
+jump_en = 1
+
+CHECKING JALR INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = a
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 12345679
+jump_en = 1
+
+CHECKING JAL INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = a
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 12345679
+jump_en = 1
+
+CHECKING AUIPC INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = 12345679
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 1234567b
+jump_en = 0
+
+CHECKING LUI INSTRUCTION!!!
+memory stage registers:
+----------------------
+data_mem_en_mem = 1
+data_mem_we_mem = 1
+rs2_mem = 0
+addr_mem = 0
+pc_fetch = 12345679
+
+write back stage registers:
+----------------------------
+gpr_en_wb = 1
+gpr_we_wb = 1
+addr_rd_wb = a
+data_rd_wb = 3
+jump_en = 0

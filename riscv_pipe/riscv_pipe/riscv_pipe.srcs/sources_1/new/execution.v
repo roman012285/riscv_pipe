@@ -39,7 +39,8 @@ module execution(
     output reg [`REG_WIDTH-1:0]        data_rd_wb,       // rd data to write back into. 
     
     //----- to fetch stage -----//
-    output reg [`PC_WIDTH-1:0]         pc_fetch
+    output reg [`PC_WIDTH-1:0]         pc_fetch,
+    output reg                         jump_en           // when '1' then update pc with pc_fetch value
 
 
 );
@@ -112,31 +113,45 @@ module execution(
                 addr_mem_ns   = result;
            `b_type: begin
                 if(funct3 == 3'b000)
-                    if(flag[2])
+                    if(flag[2]) begin
                         pc_fetch_ns = pc + immidiate;
+                        jump_en     = 1'b1;
+                    end
                 else if(funct3 == 3'b001)
-                    if(!flag[2])
+                    if(!flag[2]) begin
                         pc_fetch_ns = pc + immidiate;
-                else if(funct3 == 3'b100)
-                    if(flag[0])
+                        jump_en     = 1'b1;
+                    end
+                else if(funct3 == 3'b100) 
+                    if(flag[0]) begin
                         pc_fetch_ns = pc + immidiate;
+                        jump_en     = 1'b1;
+                    end
                 else if(funct3 == 3'b101)
-                    if(!flag[0])
+                    if(!flag[0]) begin
                         pc_fetch_ns = pc + immidiate;
+                        jump_en     = 1'b1;
+                    end
                else if(funct3 == 3'b110)
-                    if(flag[2])
+                    if(flag[2]) begin
                         pc_fetch_ns = pc + immidiate;
+                        jump_en     = 1'b1;
+                    end
                else if(funct3 == 3'b110)
-                    if(!flag[2])
-                        pc_fetch_ns = pc + immidiate;       
+                    if(!flag[2]) begin
+                        pc_fetch_ns = pc + immidiate;
+                        jump_en     = 1'b1;
+                    end       
            end
            `i_type_jalr: begin
                 data_rd_wb_ns = pc + 1; 
-                pc_fetch_ns     = result;
+                pc_fetch_ns   = result;
+                jump_en       = 1'b1;
            end
            `j_type: begin
                 data_rd_wb_ns = pc + 1;
-                pc_fetch_ns     = result;  
+                pc_fetch_ns   = result;
+                jump_en       = 1'b1;  
             end
             `u_type_auipc: 
                data_rd_wb_ns = pc + immidiate;  
@@ -150,7 +165,8 @@ module execution(
     task set_default(); begin
         data_rd_wb_ns = 0;
         addr_mem_ns   = 0;
-        rs2_mem_ns    = 0; 
+        rs2_mem_ns    = 0;
+        jump_en       = 0; 
     end
     endtask
     

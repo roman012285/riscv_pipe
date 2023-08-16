@@ -53,6 +53,7 @@ module execution_tb(
     
     //----- to fetch stage -----//
     wire [PC_WIDTH-1:0]         pc_fetch;
+    wire                        jump_en;
     
     always #DELAY clk = ~clk;
     
@@ -87,7 +88,10 @@ module execution_tb(
     .gpr_we_wb(gpr_we_wb),         // write enable to gpr. pass as is to next stage
     .addr_rd_wb(addr_rd_wb),       // rd address to write back into. pass as is to next stage
     .data_rd_wb(data_rd_wb),        // rd data to write back into. 
-    .pc_fetch(pc_fetch)
+    
+    //------ to fetch stage -----/;
+    .pc_fetch(pc_fetch),
+    .jump_en(jump_en)
 );
     
     initial begin
@@ -115,6 +119,7 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("-----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
+        $display("jump_en = %1h", jump_en);
         
         ////////////////////////////////////////////////////////////////////////
         
@@ -136,6 +141,7 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
+        $display("jump_en = %1h", jump_en);
  
         ////////////////////////////////////////////////////////////////////////
         
@@ -156,7 +162,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
+        
         ////////////////////////////////////////////////////////////////////////
         
         alu_in1 = 32'h00000005;
@@ -176,7 +183,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
+        
        ////////////////////////////////////////////////////////////////////////
          
         alu_in1 = 32'h00000005;
@@ -196,6 +204,7 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
+        $display("jump_en = %1h", jump_en);
         
         ////////////////////////////////////////////////////////////////////////
          
@@ -216,7 +225,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
-    
+        $display("jump_en = %1h", jump_en);
+        
         ////////////////////////////////////////////////////////////////////////
          
         alu_in1 = 32'h00000005;
@@ -236,7 +246,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
+        
         ////////////////////////////////////////////////////////////////////////
          
         alu_in1 = 32'h00000005;
@@ -256,7 +267,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
+        
         ////////////////////////////////////////////////////////////////////////
          
         alu_in1 = 32'h00000005;
@@ -276,7 +288,8 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
+        
          ////////////////////////////////////////////////////////////////////////
          
         alu_in1 = 32'h00000005;
@@ -296,7 +309,7 @@ module execution_tb(
         $display("\nwrite back stage registers:");
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
- 
+        $display("jump_en = %1h", jump_en);
           
                      
     
