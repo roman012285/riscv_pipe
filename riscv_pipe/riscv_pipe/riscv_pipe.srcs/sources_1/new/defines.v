@@ -1,4 +1,5 @@
 //----- General purpose register file -----//
+`define YES_INIT_GPR 
 `define REG_WIDTH  32
 `define GPRN       32
 
@@ -7,6 +8,7 @@
 `define INST_WIDTH  32 
 
 //----- DATA BRAM defines -----//
+`define YES_INIT_DATA_RAM
 `define DATA_DEPTH  2048
 `define DATA_WIDTH  32 
 
@@ -39,6 +41,10 @@
 `define l_bit     instruction[20]
 `define imm_u     instruction[31:12]
 
+//----- write back stage -----//
+`define pass 1'b0
+`define load 1'b1
+
 //----- OP_CODES -----//
 `define r_type        7'b0110011
 `define i_type_arithm 7'b0010011
@@ -63,6 +69,8 @@
 `define sra  4'b1101
 `define ror  4'b0110
 `define rand 4'b0111
+
+
  
 
 

@@ -1,4 +1,38 @@
-00000001
-00000002
-00000008
-ab12c456
+//000000b7    //lui t1, 0
+//00000137    //lui t2, 0
+//00000fb7    //lui t31, 0
+
+//000071B7    //lui t3, 7
+//0000a237    //lui t4, a
+
+// for next instructions "define YES_INIT_GPR"
+
+//003202b3    //add t5, t4, t3
+//00028333    //add t6, t5, t0
+//0041a193    //slti t3,t3,4
+//00225413    //srli t8,t4,2
+
+//00a00023    //sb t10, 0(t0)
+//00a19023    //sh t10, 0(t3)
+//00a1a0a3    //sw t10, 1(t3) 
+
+// for next instruction  "define YES_INIT_DATA_RAM"
+// for next instructions "define NO_INIT_GPR"
+//00200083    //lb t1, 2(t0)
+//00201083    //lh t1, 2(t0)
+//00202083    //lw t1, 2(t0)  
+//00204083    //lbu t1, 2(t0)  
+//00205083    //lhu t1, 2(t0) 
+
+// for next instructions "define NO_INIT_GPR"
+//00001597    //auipc t11, 1 
+//0000166f    //jal t11, 1
+
+// for next instructions "define YES_INIT_GPR"
+//00118667    //jalr t12,1(t3)
+
+//005200e3    //beq t4, t5, 1
+00521fe3    //bne t4, t5, 1
+
+
+

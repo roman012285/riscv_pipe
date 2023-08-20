@@ -41,6 +41,8 @@ module execution_tb(
     wire                          data_mem_we_mem;    // write enable in store instructions. passed as is to next stage
     wire [REG_WIDTH-1:0]          rs2_mem;            // used in store instructions. passed as is to next stage
     wire [$clog2(DATA_DEPTH)-1:0] addr_mem;           // adder to store rs2 or load to rd
+    wire [FUNCT3_WIDTH-1:0]       funct3_mem;        // defines what type of load instruction
+    wire                          mem_wb;             // when '1' is load instruction. when '0' something else
     
     //----- to write back stage -----//
     reg                         gpr_en_idex;       
@@ -79,6 +81,8 @@ module execution_tb(
     .data_mem_we_mem(data_mem_we_mem),      // write enable in store instructions. passed as is to next stage
     .rs2_mem(rs2_mem),                      // used in store instructions. passed as is to next stage
     .addr_mem(addr_mem),                    // adder to store rs2 or load to rd
+    .funct3_mem(funct3_mem),                 //defines what type of load instruction
+    .mem_wb(mem_wb),
     
     //----- to write back stage -----//
     .gpr_en_idex(gpr_en_idex),       
@@ -120,6 +124,7 @@ module execution_tb(
         $display("-----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb); 
         
         ////////////////////////////////////////////////////////////////////////
         
@@ -142,7 +147,8 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
- 
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
+        
         ////////////////////////////////////////////////////////////////////////
         
         alu_in1 = 32'h00000005;
@@ -163,6 +169,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
         ////////////////////////////////////////////////////////////////////////
         
@@ -184,6 +191,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
        ////////////////////////////////////////////////////////////////////////
          
@@ -205,6 +213,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
         ////////////////////////////////////////////////////////////////////////
          
@@ -226,6 +235,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
         ////////////////////////////////////////////////////////////////////////
          
@@ -247,6 +257,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
         ////////////////////////////////////////////////////////////////////////
          
@@ -268,6 +279,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
         ////////////////////////////////////////////////////////////////////////
          
@@ -289,6 +301,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
         
          ////////////////////////////////////////////////////////////////////////
          
@@ -310,6 +323,7 @@ module execution_tb(
         $display("----------------------------");
         $display("gpr_en_wb = %1h\ngpr_we_wb = %1h\naddr_rd_wb = %1h\ndata_rd_wb = %1h", gpr_en_wb, gpr_we_wb, addr_rd_wb, data_rd_wb);
         $display("jump_en = %1h", jump_en);
+        $display("funct3_mem = %1h\nmem_wb = %1h",funct3_mem, mem_wb);
           
                      
     

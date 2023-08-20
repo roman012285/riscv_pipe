@@ -22,7 +22,7 @@ module decode(
     output reg [`PC_WIDTH-1:0]          pc2ex,         // pass pc to execution stage
     output reg [`OP_CODE_WIDTH-1:0]     op_code2ex,    // instruction[6:0]
     output reg [`FUNCT3_WIDTH-1:0]      funct3,        // instruction[14:12]
-    output reg [`IMM_ID-1:0]            immidiate_ex,  // used for adding value to pc
+    output reg [`IMM_ID-1:0]            immidiate_ex,  // used for adding value to pc or other immidiate value
        
     //----- to data memory stage -----//
     output reg                  data_mem_en_idex,   // enables memory read in load-store instructions
@@ -49,7 +49,8 @@ module decode(
     gpr gpr_module(
       .clk(clk),
       .we(gpr_we_wb),
-      .en(gpr_en_wb),
+      //.en(gpr_en_wb),
+      .en(1'b1),
       .addr_rs1(`addr_rs1),
       .addr_rs2(`addr_rs2),
       .addr_rd(addr_rd_wb),

@@ -28,6 +28,8 @@ module execution(
     output reg                           data_mem_we_mem,    // write enable in store instructions. passed as is to next stage
     output reg [`REG_WIDTH-1:0]          rs2_mem,            // used in store instructions. passed as is to next stage
     output reg [$clog2(`DATA_DEPTH)-1:0] addr_mem,           // adder to store rs2 or load to rd
+    output reg [`FUNCT3_WIDTH-1:0]       funct3_mem,         // defines what type of load instruction
+    output reg                           mem_wb,             // when '1' is load instruction. when '0' something else
     
     //----- to write back stage -----//
     input                              gpr_en_idex,       
@@ -57,18 +59,12 @@ module execution(
     );
     
     reg [`REG_WIDTH-1:0]          data_rd_wb_ns;
-    reg [`PC_WIDTH-1:0]           pc_fetch_ns;
+    //reg [`PC_WIDTH-1:0]           pc_fetch_ns;
     reg [$clog2(`DATA_DEPTH)-1:0] addr_mem_ns;
-    reg [`REG_WIDTH-1:0]          rs2_mem_ns;    // used in store instructions in mem stage. pass as is to next stage
-    
-    always@(posedge clk) begin
-        if(rst) 
-            pc_fetch <= 32'h00000000;
-        else
-            pc_fetch <= pc_fetch_ns;
-    
-    end
-    
+    reg [`REG_WIDTH-1:0]          rs2_mem_ns;       // used in store instructions in mem stage. pass as is to next stage
+    reg [`FUNCT3_WIDTH-1:0]       funct3_mem_ns;    // defines what type of load instruction
+    reg                           mem_wb_ns;        // when '1' is load instruction. when '0' something else
+        
     always@(posedge clk) begin
         if(rst) begin
            data_mem_en_mem <= 1'b0;
@@ -79,6 +75,8 @@ module execution(
            addr_rd_wb      <= 0;
            data_rd_wb      <= 32'h00000000;
            addr_mem        <= 0;
+           funct3_mem      <= 3'b000;
+           mem_wb          <= 1'b0;
         end
         else begin
            data_mem_en_mem <= data_mem_en_idex;
@@ -88,13 +86,14 @@ module execution(
            gpr_we_wb       <= gpr_we_idex;        
            addr_rd_wb      <= addr_rd_idex;
            data_rd_wb      <= data_rd_wb_ns;
-           addr_mem        <= addr_mem_ns; 
+           addr_mem        <= addr_mem_ns;
+           funct3_mem      <= funct3_mem_ns;
+           mem_wb          <= mem_wb_ns; 
         end
     end
 
     always@(*) begin
         set_default();
-        pc_fetch_ns = pc + 1;
         case(op_code)
             `r_type: 
                 data_rd_wb_ns = result;           
@@ -109,48 +108,57 @@ module execution(
                 else
                     rs2_mem_ns = rs2_idex; 
             end                     
-           `i_type_dmem: 
+           `i_type_dmem: begin
                 addr_mem_ns   = result;
+                funct3_mem_ns = funct3;    
+                mem_wb_ns     = 1'b1;
+            end
            `b_type: begin
-                if(funct3 == 3'b000)
+                if(funct3 == 3'b000) begin
                     if(flag[2]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
                     end
-                else if(funct3 == 3'b001)
+                end
+                else if(funct3 == 3'b001) begin
                     if(!flag[2]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
                     end
-                else if(funct3 == 3'b100) 
+                end
+                else if(funct3 == 3'b100) begin 
                     if(flag[0]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
                     end
-                else if(funct3 == 3'b101)
+                end
+                else if(funct3 == 3'b101) begin
                     if(!flag[0]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
                     end
-               else if(funct3 == 3'b110)
+               end
+               else if(funct3 == 3'b110) begin
                     if(flag[2]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
                     end
-               else if(funct3 == 3'b110)
+               end
+               else if(funct3 == 3'b110) begin
                     if(!flag[2]) begin
-                        pc_fetch_ns = pc + immidiate;
-                        jump_en     = 1'b1;
-                    end       
+                        pc_fetch = pc + immidiate;
+                        jump_en  = 1'b1;
+                    end
+               end       
            end
            `i_type_jalr: begin
                 data_rd_wb_ns = pc + 1; 
-                pc_fetch_ns   = result;
+                pc_fetch      = result;
                 jump_en       = 1'b1;
            end
            `j_type: begin
                 data_rd_wb_ns = pc + 1;
-                pc_fetch_ns   = result;
+                pc_fetch      = result;
                 jump_en       = 1'b1;  
             end
             `u_type_auipc: 
@@ -166,7 +174,11 @@ module execution(
         data_rd_wb_ns = 0;
         addr_mem_ns   = 0;
         rs2_mem_ns    = 0;
-        jump_en       = 0; 
+        pc_fetch      = 0;
+        jump_en       = 0;
+        funct3_mem_ns = 0;    
+        mem_wb_ns     = 0;        
+     
     end
     endtask
     

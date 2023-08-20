@@ -25,13 +25,12 @@ module imm_generator(
             immidiate = {{20{`msb}}, `b_bit, `imm_bl, `imm_br, 1'b0};
         `i_type_jalr:
             immidiate = {{20{`msb}},`imm_i};  
-         `j_type:
+        `j_type:
             immidiate = {{12{`msb}}, `imm_jr, `l_bit, `imm_jl, 1'b0};
-         `u_type_auipc: 
+        `u_type_auipc: 
             immidiate = {`imm_u, {12{1'b0}}};
-             
-    
-    
+        `u_type_lui:
+            immidiate = {`imm_u, {12{1'b0}}};
     endcase
    end 
 

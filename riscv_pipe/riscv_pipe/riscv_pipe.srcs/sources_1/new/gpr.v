@@ -21,10 +21,12 @@ module gpr(
 
 
     reg [`REG_WIDTH-1:0] gpr_mem [0:`GPRN-1];
-    
+   
+    `ifdef YES_INIT_GPR 
     initial 
         $readmemh("reg_file_init_tb.mem", gpr_mem);
-        
+    `endif
+    
     always@(posedge clk) begin
         if(we & en) 
             gpr_mem[addr_rd] <= data_rd;

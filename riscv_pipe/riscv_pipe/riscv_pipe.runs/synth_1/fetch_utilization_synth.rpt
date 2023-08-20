@@ -1,13 +1,13 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Aug 16 13:08:44 2023
+| Date         : Sun Aug 20 11:51:53 2023
 | Host         : HarutzSchool-PC running 64-bit Service Pack 1  (build 7601)
-| Command      : report_utilization -file execution_utilization_synth.rpt -pb execution_utilization_synth.pb
-| Design       : execution
+| Command      : report_utilization -file fetch_utilization_synth.rpt -pb fetch_utilization_synth.pb
+| Design       : fetch
 | Device       : 7a35tcpg236-1
 | Design State : Synthesized
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  662 |     0 |     20800 |  3.18 |
-|   LUT as Logic          |  662 |     0 |     20800 |  3.18 |
+| Slice LUTs*             |   35 |     0 |     20800 |  0.17 |
+|   LUT as Logic          |   35 |     0 |     20800 |  0.17 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  116 |     0 |     41600 |  0.28 |
-|   Register as Flip Flop |  116 |     0 |     41600 |  0.28 |
+| Slice Registers         |   32 |     0 |     41600 |  0.08 |
+|   Register as Flip Flop |   32 |     0 |     41600 |  0.08 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,20 +57,21 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 116   |          Yes |       Reset |            - |
+| 32    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. Memory
 ---------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| Block RAM Tile |    0 |     0 |        50 |  0.00 |
-|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
-|   RAMB18       |    0 |     0 |       100 |  0.00 |
-+----------------+------+-------+-----------+-------+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |    2 |     0 |        50 |  4.00 |
+|   RAMB36/FIFO*    |    2 |     0 |        50 |  4.00 |
+|     RAMB36E1 only |    2 |       |           |       |
+|   RAMB18          |    0 |     0 |       100 |  0.00 |
++-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
@@ -87,26 +88,26 @@ Table of Contents
 4. IO and GT Specific
 ---------------------
 
-+-----------------------------+------+-------+-----------+--------+
-|          Site Type          | Used | Fixed | Available |  Util% |
-+-----------------------------+------+-------+-----------+--------+
-| Bonded IOB                  |  302 |     0 |       106 | 284.91 |
-| Bonded IPADs                |    0 |     0 |        10 |   0.00 |
-| Bonded OPADs                |    0 |     0 |         4 |   0.00 |
-| PHY_CONTROL                 |    0 |     0 |         5 |   0.00 |
-| PHASER_REF                  |    0 |     0 |         5 |   0.00 |
-| OUT_FIFO                    |    0 |     0 |        20 |   0.00 |
-| IN_FIFO                     |    0 |     0 |        20 |   0.00 |
-| IDELAYCTRL                  |    0 |     0 |         5 |   0.00 |
-| IBUFDS                      |    0 |     0 |       104 |   0.00 |
-| GTPE2_CHANNEL               |    0 |     0 |         2 |   0.00 |
-| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |   0.00 |
-| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |   0.00 |
-| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |   0.00 |
-| IBUFDS_GTE2                 |    0 |     0 |         2 |   0.00 |
-| ILOGIC                      |    0 |     0 |       106 |   0.00 |
-| OLOGIC                      |    0 |     0 |       106 |   0.00 |
-+-----------------------------+------+-------+-----------+--------+
++-----------------------------+------+-------+-----------+-------+
+|          Site Type          | Used | Fixed | Available | Util% |
++-----------------------------+------+-------+-----------+-------+
+| Bonded IOB                  |  103 |     0 |       106 | 97.17 |
+| Bonded IPADs                |    0 |     0 |        10 |  0.00 |
+| Bonded OPADs                |    0 |     0 |         4 |  0.00 |
+| PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
+| PHASER_REF                  |    0 |     0 |         5 |  0.00 |
+| OUT_FIFO                    |    0 |     0 |        20 |  0.00 |
+| IN_FIFO                     |    0 |     0 |        20 |  0.00 |
+| IDELAYCTRL                  |    0 |     0 |         5 |  0.00 |
+| IBUFDS                      |    0 |     0 |       104 |  0.00 |
+| GTPE2_CHANNEL               |    0 |     0 |         2 |  0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |  0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |  0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |  0.00 |
+| IBUFDS_GTE2                 |    0 |     0 |         2 |  0.00 |
+| ILOGIC                      |    0 |     0 |       106 |  0.00 |
+| OLOGIC                      |    0 |     0 |       106 |  0.00 |
++-----------------------------+------+-------+-----------+-------+
 
 
 5. Clocking
@@ -149,15 +150,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  356 |                 LUT |
-| IBUF     |  185 |                  IO |
-| LUT2     |  163 |                 LUT |
-| OBUF     |  117 |                  IO |
-| FDRE     |  116 |        Flop & Latch |
-| LUT5     |  110 |                 LUT |
-| LUT4     |   93 |                 LUT |
-| LUT3     |   60 |                 LUT |
-| CARRY4   |   39 |          CarryLogic |
+| OBUF     |   64 |                  IO |
+| IBUF     |   39 |                  IO |
+| LUT3     |   34 |                 LUT |
+| FDRE     |   32 |        Flop & Latch |
+| CARRY4   |    8 |          CarryLogic |
+| RAMB36E1 |    2 |        Block Memory |
+| LUT2     |    1 |                 LUT |
+| LUT1     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

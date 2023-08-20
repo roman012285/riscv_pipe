@@ -28,21 +28,23 @@ module fetch(
         else 
             PC <= N_PC;
     end    
-    
-    always@(posedge clk) begin
-        pc2id <= PC;
-    end
-    
+
     
     always@(*) begin
         if(pc_en) begin
-           if(jump_en)
-                N_PC = load_pc;
-           else
+           if(jump_en) begin
+                N_PC  = load_pc;
+                pc2id = PC;
+           end
+           else begin
                 N_PC = PC + 1;
+                pc2id = PC;
+           end
         end
-        else
-            N_PC = PC;     
+        else begin
+            N_PC = PC;
+            pc2id = PC;
+        end     
     end
       
     inst_ram inst_ram_module(

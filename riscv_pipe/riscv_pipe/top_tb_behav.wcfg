@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="73412874fs"></ZoomEndTime>
+      <Cursor1Time time="150000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <ValueColumnWidth column_width="103"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="118" />
+   <wvobject type="divider" fp_name="divider763">
+      <obj_property name="label">tb</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider777">
+      <obj_property name="label">fetch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/jump_en" type="logic">
+      <obj_property name="ElementShortName">jump_en</obj_property>
+      <obj_property name="ObjectShortName">jump_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/load_pc" type="array">
+      <obj_property name="ElementShortName">load_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">load_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/pc_en" type="logic">
+      <obj_property name="ElementShortName">pc_en</obj_property>
+      <obj_property name="ObjectShortName">pc_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/inst_mem_en" type="logic">
+      <obj_property name="ElementShortName">inst_mem_en</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/inst_mem_we" type="logic">
+      <obj_property name="ElementShortName">inst_mem_we</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/inst_mem_rst" type="logic">
+      <obj_property name="ElementShortName">inst_mem_rst</obj_property>
+      <obj_property name="ObjectShortName">inst_mem_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/inst_fetch_out" type="array">
+      <obj_property name="ElementShortName">inst_fetch_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_fetch_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/pc2id" type="array">
+      <obj_property name="ElementShortName">pc2id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc2id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/fetch_module/N_PC" type="array">
+      <obj_property name="ElementShortName">N_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider790">
+      <obj_property name="label">decode</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/pc_from_if" type="array">
+      <obj_property name="ElementShortName">pc_from_if[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_from_if[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/alu_in1" type="array">
+      <obj_property name="ElementShortName">alu_in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/alu_in2" type="array">
+      <obj_property name="ElementShortName">alu_in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/funct3_alu" type="array">
+      <obj_property name="ElementShortName">funct3_alu[3:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_alu[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/pc2ex" type="array">
+      <obj_property name="ElementShortName">pc2ex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc2ex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/op_code2ex" type="array">
+      <obj_property name="ElementShortName">op_code2ex[6:0]</obj_property>
+      <obj_property name="ObjectShortName">op_code2ex[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/funct3" type="array">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/immidiate_ex" type="array">
+      <obj_property name="ElementShortName">immidiate_ex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immidiate_ex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/data_mem_en_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/data_mem_we_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/rs2_idex" type="array">
+      <obj_property name="ElementShortName">rs2_idex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_idex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_en_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_en_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_we_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_we_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/addr_rd_idex" type="array">
+      <obj_property name="ElementShortName">addr_rd_idex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_idex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_en_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_en_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_we_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_we_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/rd_in_wb" type="array">
+      <obj_property name="ElementShortName">rd_in_wb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_in_wb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/addr_rd_wb" type="array">
+      <obj_property name="ElementShortName">addr_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/rs1" type="array">
+      <obj_property name="ElementShortName">rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/immidiate" type="array">
+      <obj_property name="ElementShortName">immidiate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immidiate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/funct3_alu_ns" type="array">
+      <obj_property name="ElementShortName">funct3_alu_ns[3:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_alu_ns[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/alu_in1_ns" type="array">
+      <obj_property name="ElementShortName">alu_in1_ns[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in1_ns[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/alu_in2_ns" type="array">
+      <obj_property name="ElementShortName">alu_in2_ns[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in2_ns[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/data_mem_en_idex_ns" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_idex_ns</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_idex_ns</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/data_mem_we_idex_ns" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_idex_ns</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_idex_ns</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_we_idex_ns" type="logic">
+      <obj_property name="ElementShortName">gpr_we_idex_ns</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_idex_ns</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/gpr_en_idex_ns" type="logic">
+      <obj_property name="ElementShortName">gpr_en_idex_ns</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_idex_ns</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/decode_module/addr_rd_idex_ns" type="array">
+      <obj_property name="ElementShortName">addr_rd_idex_ns[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_idex_ns[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider823">
+      <obj_property name="label">execution</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/alu_in1" type="array">
+      <obj_property name="ElementShortName">alu_in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/alu_in2" type="array">
+      <obj_property name="ElementShortName">alu_in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/funct3_alu" type="array">
+      <obj_property name="ElementShortName">funct3_alu[3:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_alu[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/op_code" type="array">
+      <obj_property name="ElementShortName">op_code[6:0]</obj_property>
+      <obj_property name="ObjectShortName">op_code[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/funct3" type="array">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_mem_en_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_mem_we_idex" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_idex</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/rs2_idex" type="array">
+      <obj_property name="ElementShortName">rs2_idex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_idex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/immidiate" type="array">
+      <obj_property name="ElementShortName">immidiate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immidiate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_mem_en_mem" type="logic">
+      <obj_property name="ElementShortName">data_mem_en_mem</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_mem_we_mem" type="logic">
+      <obj_property name="ElementShortName">data_mem_we_mem</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/rs2_mem" type="array">
+      <obj_property name="ElementShortName">rs2_mem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_mem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/addr_mem" type="array">
+      <obj_property name="ElementShortName">addr_mem[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_mem[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/funct3_mem" type="array">
+      <obj_property name="ElementShortName">funct3_mem[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_mem[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/mem_wb" type="logic">
+      <obj_property name="ElementShortName">mem_wb</obj_property>
+      <obj_property name="ObjectShortName">mem_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/gpr_en_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_en_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/gpr_we_idex" type="logic">
+      <obj_property name="ElementShortName">gpr_we_idex</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_idex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/addr_rd_idex" type="array">
+      <obj_property name="ElementShortName">addr_rd_idex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_idex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/gpr_en_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_en_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/gpr_we_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_we_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/addr_rd_wb" type="array">
+      <obj_property name="ElementShortName">addr_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_rd_wb" type="array">
+      <obj_property name="ElementShortName">data_rd_wb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_wb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/pc_fetch" type="array">
+      <obj_property name="ElementShortName">pc_fetch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_fetch[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/jump_en" type="logic">
+      <obj_property name="ElementShortName">jump_en</obj_property>
+      <obj_property name="ObjectShortName">jump_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/result" type="array">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/flag" type="array">
+      <obj_property name="ElementShortName">flag[2:0]</obj_property>
+      <obj_property name="ObjectShortName">flag[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/data_rd_wb_ns" type="array">
+      <obj_property name="ElementShortName">data_rd_wb_ns[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_wb_ns[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/addr_mem_ns" type="array">
+      <obj_property name="ElementShortName">addr_mem_ns[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_mem_ns[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/rs2_mem_ns" type="array">
+      <obj_property name="ElementShortName">rs2_mem_ns[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_mem_ns[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/funct3_mem_ns" type="array">
+      <obj_property name="ElementShortName">funct3_mem_ns[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_mem_ns[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/execution_module/mem_wb_ns" type="logic">
+      <obj_property name="ElementShortName">mem_wb_ns</obj_property>
+      <obj_property name="ObjectShortName">mem_wb_ns</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider859">
+      <obj_property name="label">memory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_mem_en" type="logic">
+      <obj_property name="ElementShortName">data_mem_en</obj_property>
+      <obj_property name="ObjectShortName">data_mem_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_mem_we" type="logic">
+      <obj_property name="ElementShortName">data_mem_we</obj_property>
+      <obj_property name="ObjectShortName">data_mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/rs2_mem" type="array">
+      <obj_property name="ElementShortName">rs2_mem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_mem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/addr_mem" type="array">
+      <obj_property name="ElementShortName">addr_mem[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_mem[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/funct3_mem" type="array">
+      <obj_property name="ElementShortName">funct3_mem[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_mem[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/mem_wb" type="logic">
+      <obj_property name="ElementShortName">mem_wb</obj_property>
+      <obj_property name="ObjectShortName">mem_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/gpr_en_ex" type="logic">
+      <obj_property name="ElementShortName">gpr_en_ex</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_ex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/gpr_we_ex" type="logic">
+      <obj_property name="ElementShortName">gpr_we_ex</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_ex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/addr_rd_ex" type="array">
+      <obj_property name="ElementShortName">addr_rd_ex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_ex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_rd_ex" type="array">
+      <obj_property name="ElementShortName">data_rd_ex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_ex[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/gpr_en_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_en_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/gpr_we_wb" type="logic">
+      <obj_property name="ElementShortName">gpr_we_wb</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/addr_rd_wb" type="array">
+      <obj_property name="ElementShortName">addr_rd_wb[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_wb[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_rd_wb" type="array">
+      <obj_property name="ElementShortName">data_rd_wb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_wb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_rd_wb_mem" type="array">
+      <obj_property name="ElementShortName">data_rd_wb_mem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_wb_mem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/funct3_mem_wb" type="array">
+      <obj_property name="ElementShortName">funct3_mem_wb[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_mem_wb[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/mem_mem_wb" type="logic">
+      <obj_property name="ElementShortName">mem_mem_wb</obj_property>
+      <obj_property name="ObjectShortName">mem_mem_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/mem_out" type="array">
+      <obj_property name="ElementShortName">mem_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/mem_stage_module/data_rd_ex_ns" type="array">
+      <obj_property name="ElementShortName">data_rd_ex_ns[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_ex_ns[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider881">
+      <obj_property name="label">write_back</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/funct3_mem_wb" type="array">
+      <obj_property name="ElementShortName">funct3_mem_wb[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3_mem_wb[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/mem_mem_wb" type="logic">
+      <obj_property name="ElementShortName">mem_mem_wb</obj_property>
+      <obj_property name="ObjectShortName">mem_mem_wb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/gpr_en_mem" type="logic">
+      <obj_property name="ElementShortName">gpr_en_mem</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/gpr_we_mem" type="logic">
+      <obj_property name="ElementShortName">gpr_we_mem</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/addr_rd_mem" type="array">
+      <obj_property name="ElementShortName">addr_rd_mem[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_mem[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/data_rd_mem" type="array">
+      <obj_property name="ElementShortName">data_rd_mem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_mem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/data_rd_mem_load" type="array">
+      <obj_property name="ElementShortName">data_rd_mem_load[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_mem_load[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/gpr_en_id" type="logic">
+      <obj_property name="ElementShortName">gpr_en_id</obj_property>
+      <obj_property name="ObjectShortName">gpr_en_id</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/gpr_we_id" type="logic">
+      <obj_property name="ElementShortName">gpr_we_id</obj_property>
+      <obj_property name="ObjectShortName">gpr_we_id</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/addr_rd_id" type="array">
+      <obj_property name="ElementShortName">addr_rd_id[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_rd_id[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_module/write_back_module/data_rd_id" type="array">
+      <obj_property name="ElementShortName">data_rd_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_rd_id[31:0]</obj_property>
+   </wvobject>
+</wave_config>
