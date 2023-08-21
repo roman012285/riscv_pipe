@@ -31,7 +31,7 @@ module top_tb(
         
         
         rst = 0;
-        #(20*DELAY);
+        #(100*DELAY);
         show_gpr();
         //$display("\ndata_memory");
         //show_data_mem();

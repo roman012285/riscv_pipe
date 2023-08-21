@@ -32,7 +32,16 @@
 //00118667    //jalr t12,1(t3)
 
 //005200e3    //beq t4, t5, 1
-00521fe3    //bne t4, t5, 1
+//00521fe3    //bne t4, t5, 1
 
+// testing gpr structural hazard
+000000b7    //lui t1, 0
+00000137    //lui t2, 0
+00000fb7    //lui t31, 0
+000071B7    //lui t3, 7
+0000a237    //lui t4, a
 
+00028333    //add t6, t5, t0
+000091B7    //lui t3, 9
+0000b237    //lui t4, b
 
